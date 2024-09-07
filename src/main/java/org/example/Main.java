@@ -11,6 +11,8 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.function.Consumer;
 
 public class Main extends JFrame {
 
@@ -22,6 +24,13 @@ public class Main extends JFrame {
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
+
+        ArrayList<ValueMetric> valueMetrics = new ArrayList<ValueMetric>(new ArrayList<ValueMetric>() {{
+            add(new ValueMetric("open"));
+            add(new ValueMetric("high"));
+            add(new ValueMetric("low"));
+            add(new ValueMetric("close"));
+        }});
 
         // Button panel with the "+" button
         JPanel buttonPanel = new JPanel();
@@ -38,12 +47,18 @@ public class Main extends JFrame {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                addNewGraph();
+                CreateGraphViewPopup popup = new CreateGraphViewPopup();
+                popup.openPopup(valueMetrics, new Consumer<ArrayList<ValueMetric>>() {
+                    @Override
+                    public void accept(ArrayList<ValueMetric> selected) {
+                        addNewGraph(selected);
+                    }
+                });
             }
         });
     }
 
-    private void addNewGraph() {
+    private void addNewGraph(ArrayList<ValueMetric> valueMetrics) {
 
         JPanel panel = new JPanel(new BorderLayout());
         panel.setLayout(new GridLayout(0, 1));  // Stack graphs vertically
@@ -59,7 +74,9 @@ public class Main extends JFrame {
                 graphPanel.repaint();
             }
         });
-        new GraphUI().createGraph(panel);
+        BovDataset dataset = new BovDataset(valueMetrics);
+
+        new GraphUI().createGraph(panel, dataset);
         new GraphActionsUI().createGraphActions(panel);
 
         graphPanel.add(panel);

@@ -9,8 +9,7 @@ import java.awt.*;
 
 public class GraphUI {
 
-    public void createGraph(JPanel parentPanel) {
-        BovDataset dataset = new BovDataset();
+    public void createGraph(JPanel parentPanel, BovDataset dataset) {
 
         // Create the line chart
         JFreeChart lineChart = ChartFactory.createLineChart(
