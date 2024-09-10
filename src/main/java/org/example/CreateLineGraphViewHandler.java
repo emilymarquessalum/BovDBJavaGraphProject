@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class CreateGraphViewPopup {
+public class CreateLineGraphViewHandler implements GraphCreationHandler {
 
-    public void openPopup(List<ValueMetric> metrics, Consumer<ArrayList<ValueMetric>> callback) {
+
+    public void createGraph(List<ValueMetric> metrics, Consumer<GraphCreationParameters> callback) {
         // Create the JDialog
         JDialog dialog = new JDialog();
         dialog.setTitle("Popup Window");
@@ -42,7 +43,9 @@ public class CreateGraphViewPopup {
                         );
                     }
                 }
-                callback.accept(selected); // Pass the selected checkboxes to the callback
+                callback.accept(new GraphCreationParameters(
+                        selected, GraphOptions.LINE
+                )); // Pass the selected checkboxes to the callback
                 dialog.dispose();
             }
         });
@@ -53,6 +56,11 @@ public class CreateGraphViewPopup {
         dialog.add(checkBoxPanel);
 
         dialog.setVisible(true); // Show the dialog
+    }
+
+    @Override
+    public String getHandlerName() {
+        return "Line";
     }
 
 }

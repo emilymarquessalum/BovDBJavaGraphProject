@@ -1,5 +1,6 @@
-package org.example;
+package org.example.graph.ui;
 
+import org.example.BovDataset;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -7,7 +8,7 @@ import org.jfree.chart.JFreeChart;
 import javax.swing.*;
 import java.awt.*;
 
-public class GraphUI {
+public class LineGraphUI extends  GraphUI {
 
     public void createGraph(JPanel parentPanel, BovDataset dataset) {
 

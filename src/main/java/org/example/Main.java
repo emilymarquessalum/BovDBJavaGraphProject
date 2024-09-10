@@ -1,14 +1,9 @@
 package org.example;
 
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
+import org.example.graph.ui.GraphUI;
 
 import javax.swing.*;
-import javax.swing.text.Style;
 import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -47,10 +42,10 @@ public class Main extends JFrame {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CreateGraphViewPopup popup = new CreateGraphViewPopup();
-                popup.openPopup(valueMetrics, new Consumer<ArrayList<ValueMetric>>() {
+                GraphCreationHandler popup = new GraphSelectOptionsPopup();
+                popup.createGraph(valueMetrics, new Consumer<GraphCreationParameters>() {
                     @Override
-                    public void accept(ArrayList<ValueMetric> selected) {
+                    public void accept(GraphCreationParameters selected) {
                         addNewGraph(selected);
                     }
                 });
@@ -58,7 +53,7 @@ public class Main extends JFrame {
         });
     }
 
-    private void addNewGraph(ArrayList<ValueMetric> valueMetrics) {
+    private void addNewGraph(GraphCreationParameters parameter) {
 
         JPanel panel = new JPanel(new BorderLayout());
         panel.setLayout(new GridLayout(0, 1));  // Stack graphs vertically
@@ -74,7 +69,7 @@ public class Main extends JFrame {
                 graphPanel.repaint();
             }
         });
-        BovDataset dataset = new BovDataset(valueMetrics);
+        BovDataset dataset = new BovDataset(parameter.selectedMetrics);
 
         new GraphUI().createGraph(panel, dataset);
         new GraphActionsUI().createGraphActions(panel);
