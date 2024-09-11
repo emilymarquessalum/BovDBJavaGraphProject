@@ -8,8 +8,9 @@ import org.jfree.chart.JFreeChart;
 import javax.swing.*;
 import java.awt.*;
 
-public class LineGraphUI extends  GraphUI {
+public class LineGraphUI extends GraphUI {
 
+    @Override
     public void createGraph(JPanel parentPanel, BovDataset dataset) {
 
         // Create the line chart
@@ -24,4 +25,5 @@ public class LineGraphUI extends  GraphUI {
         chartPanel.setPreferredSize(new Dimension(600, 300));
         parentPanel.add(chartPanel);
     }
+
 }

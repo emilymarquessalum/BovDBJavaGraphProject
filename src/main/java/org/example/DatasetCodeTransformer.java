@@ -3,19 +3,24 @@ package org.example;
 import java.util.ArrayList;
 
 public class DatasetCodeTransformer {
-    ArrayList<DatasetFilter> filters;
-
-    public DatasetCodeTransformer() {
-        filters = new ArrayList<>();
+    String startDate;
+    String endDate;
+    public DatasetCodeTransformer(String startDate,
+    String endDate) {
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public String getTransformedCode() {
         String filterString = "";
 
-        for(DatasetFilter filter : filters) {
-
-            filterString += "df = df.loc[df['" + filter.getColumnName() + "'] " + filter.getOperator() + " " + filter.getValue() + "]<br>";
+        if(startDate.isEmpty() == false) {
+            filterString += "df = df.loc[df['" + "date" + "'] " + "&gt;=" + " '"+  startDate + "']<br>";
         }
+        if(endDate.isEmpty() == false) {
+            filterString += "df = df.loc[df['" + "date" + "'] " + "&lt;=" + " '" + endDate + "']<br>";
+        }
+
 
         String transformedCode = "<br>" +
                 "" +

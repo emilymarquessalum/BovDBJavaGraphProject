@@ -10,7 +10,8 @@ import java.util.function.Consumer;
 public class CreateLineGraphViewHandler implements GraphCreationHandler {
 
 
-    public void createGraph(List<ValueMetric> metrics, Consumer<GraphCreationParameters> callback) {
+    public void createGraph(ArrayList<ValueMetric> metrics, Consumer<GraphCreationParameters> callback,
+                            String startDate, String endDate) {
         // Create the JDialog
         JDialog dialog = new JDialog();
         dialog.setTitle("Popup Window");
@@ -44,7 +45,8 @@ public class CreateLineGraphViewHandler implements GraphCreationHandler {
                     }
                 }
                 callback.accept(new GraphCreationParameters(
-                        selected, GraphOptions.LINE
+                        selected, GraphOptions.LINE,
+                        startDate,endDate, false
                 )); // Pass the selected checkboxes to the callback
                 dialog.dispose();
             }
@@ -62,5 +64,6 @@ public class CreateLineGraphViewHandler implements GraphCreationHandler {
     public String getHandlerName() {
         return "Line";
     }
+
 
 }

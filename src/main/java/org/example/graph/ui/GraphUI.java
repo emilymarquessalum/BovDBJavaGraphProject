@@ -7,8 +7,13 @@ import org.jfree.chart.JFreeChart;
 
 import javax.swing.*;
 import java.awt.*;
+import java.text.ParseException;
 
+//Classe abstrata
 public abstract class GraphUI {
 
-    public abstract void createGraph(JPanel parentPanel, BovDataset dataset);
+    // Metodo abstrato -> so tem assinatura
+    abstract public void createGraph(JPanel parentPanel, BovDataset dataset) throws ParseException;
+
+
 }

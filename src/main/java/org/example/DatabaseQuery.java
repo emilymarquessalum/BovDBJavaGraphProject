@@ -60,7 +60,7 @@ public class DatabaseQuery {
 
         // Print the filtered results
         for (String[] row : filteredResults) {
-            System.out.println(String.join(", ", row));
+            //System.out.println(String.join(", ", row));
         }
 
         return filteredResults;

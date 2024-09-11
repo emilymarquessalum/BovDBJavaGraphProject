@@ -1,11 +1,14 @@
 package org.example;
 
+import org.example.graph.ui.CandlestickGraphUI;
 import org.example.graph.ui.GraphUI;
+import org.example.graph.ui.LineGraphUI;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.function.Consumer;
 
@@ -46,14 +49,18 @@ public class Main extends JFrame {
                 popup.createGraph(valueMetrics, new Consumer<GraphCreationParameters>() {
                     @Override
                     public void accept(GraphCreationParameters selected) {
-                        addNewGraph(selected);
+                        try {
+                            addNewGraph(selected);
+                        } catch (ParseException ex) {
+                            throw new RuntimeException(ex);
+                        }
                     }
-                });
+                },"","");
             }
         });
     }
 
-    private void addNewGraph(GraphCreationParameters parameter) {
+    private void addNewGraph(GraphCreationParameters parameter) throws ParseException {
 
         JPanel panel = new JPanel(new BorderLayout());
         panel.setLayout(new GridLayout(0, 1));  // Stack graphs vertically
@@ -69,15 +76,31 @@ public class Main extends JFrame {
                 graphPanel.repaint();
             }
         });
-        BovDataset dataset = new BovDataset(parameter.selectedMetrics);
+        BovDataset dataset = new BovDataset(parameter.selectedMetrics,
+                parameter.startDate,
+                parameter.endDate);
 
-        new GraphUI().createGraph(panel, dataset);
-        new GraphActionsUI().createGraphActions(panel);
+        // usa o graph ui
+        getUI(parameter.graphOption).createGraph(panel, dataset);
+
+        if(parameter.usesActions) {
+
+            new GraphActionsUI().createGraphActions(panel,
+                    parameter.startDate, parameter.endDate);
+        }
 
         graphPanel.add(panel);
         // Refresh the UI to show the new graph
         graphPanel.revalidate();
         graphPanel.repaint();
+    }
+
+    // escolhe qual graph ui usar
+    GraphUI getUI(GraphOptions options) {
+        if(options == GraphOptions.LINE) {
+            return new LineGraphUI();
+        }
+        return new CandlestickGraphUI();
     }
 
     public static void main(String[] args) {

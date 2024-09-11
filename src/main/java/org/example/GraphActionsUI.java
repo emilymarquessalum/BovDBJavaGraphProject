@@ -10,9 +10,12 @@ import java.awt.event.ActionListener;
 public class GraphActionsUI {
 
 
-    public void createGraphActions(JPanel actionsPanel) {
+    public void createGraphActions(JPanel actionsPanel,String startDate,
+                                   String endDate) {
 
-        DatasetCodeTransformer datasetCodeTransformer = new DatasetCodeTransformer();
+        DatasetCodeTransformer datasetCodeTransformer = new DatasetCodeTransformer(
+                startDate, endDate
+        );
         String contentToCopy = datasetCodeTransformer.getTransformedCode();
 
         JButton copyButton = new JButton("Copy");
