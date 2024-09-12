@@ -1,10 +1,11 @@
-package org.example;
+package org.example.graph.handlers;
+
+import org.example.ValueMetric;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Consumer;
 
-interface GraphCreationHandler {
+public interface GraphCreationHandler {
 
 
     void createGraph(ArrayList<ValueMetric> metrics, Consumer<GraphCreationParameters> callback,

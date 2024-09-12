@@ -1,7 +1,10 @@
-package org.example;
+package org.example.graph.handlers;
+
+import org.example.GraphCreationHandler;
+import org.example.graph.GraphOptions;
+import org.example.ValueMetric;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Consumer;
 
 public class CreateCandlestickGraphViewHandler implements GraphCreationHandler {

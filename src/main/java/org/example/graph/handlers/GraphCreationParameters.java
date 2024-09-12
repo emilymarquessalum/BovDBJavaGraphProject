@@ -1,11 +1,14 @@
-package org.example;
+package org.example.graph.handlers;
+
+import org.example.graph.GraphOptions;
+import org.example.ValueMetric;
 
 import java.util.ArrayList;
 
 public class GraphCreationParameters {
-    ArrayList<ValueMetric> selectedMetrics;
+    public ArrayList<ValueMetric> selectedMetrics;
 
-    GraphOptions graphOption;
+    public GraphOptions graphOption;
     public String startDate;
     public String endDate;
     public boolean usesActions;

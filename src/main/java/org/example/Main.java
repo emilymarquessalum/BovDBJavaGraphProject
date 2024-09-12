@@ -1,6 +1,12 @@
 package org.example;
 
+import org.example.data.BovDataset;
+import org.example.graph.GraphOptions;
+import org.example.graph.handlers.GraphCreationHandler;
+import org.example.graph.handlers.GraphCreationParameters;
+import org.example.graph.handlers.GraphSelectOptionsPopup;
 import org.example.graph.ui.CandlestickGraphUI;
+import org.example.graph.ui.GraphActionsUI;
 import org.example.graph.ui.GraphUI;
 import org.example.graph.ui.LineGraphUI;
 

@@ -1,4 +1,6 @@
-package org.example;
+package org.example.graph.ui;
+
+import org.example.DatasetCodeTransformer;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,5 @@
-package org.example;
+package org.example.data;
+import org.example.ValueMetric;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import java.text.ParseException;
@@ -12,7 +13,7 @@ public class BovDataset {
     private DefaultCategoryDataset dataset;
     private List<String[]> rows;
 
-    BovDataset(List<ValueMetric> valueMetrics, String startDate, String endDate) throws ParseException {
+    public BovDataset(List<ValueMetric> valueMetrics, String startDate, String endDate) throws ParseException {
 
         /**/
         DatabaseQuery query = new DatabaseQuery();

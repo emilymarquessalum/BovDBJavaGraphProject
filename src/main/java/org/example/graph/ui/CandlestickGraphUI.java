@@ -1,13 +1,12 @@
 package org.example.graph.ui;
 
-import org.example.BovDataset;
+import org.example.data.BovDataset;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.xy.DefaultOHLCDataset;
 import org.jfree.data.xy.OHLCDataItem;
-import org.jfree.data.xy.OHLCDataset;
 
 import javax.swing.*;
 import java.awt.*;

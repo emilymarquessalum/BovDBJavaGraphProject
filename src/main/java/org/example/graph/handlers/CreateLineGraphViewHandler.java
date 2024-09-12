@@ -1,10 +1,13 @@
-package org.example;
+package org.example.graph.handlers;
+import org.example.GraphCreationHandler;
+import org.example.graph.GraphOptions;
+import org.example.ValueMetric;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Consumer;
 
 public class CreateLineGraphViewHandler implements GraphCreationHandler {

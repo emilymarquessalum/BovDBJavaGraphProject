@@ -1,4 +1,4 @@
-package org.example;
+package org.example.dashboard;
 
 import javax.swing.*;
 
@@ -6,7 +6,7 @@ public class DatePeriodInputs {
 
     private final JTextField startDateField;
     private final JTextField endDateField;
-    DatePeriodInputs() {
+    public DatePeriodInputs() {
         startDateField = new JTextField(10); // 10 columns width
         endDateField = new JTextField(10);
     }

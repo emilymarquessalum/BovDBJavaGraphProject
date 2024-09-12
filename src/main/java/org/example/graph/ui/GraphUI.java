@@ -1,12 +1,8 @@
 package org.example.graph.ui;
 
-import org.example.BovDataset;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
+import org.example.data.BovDataset;
 
 import javax.swing.*;
-import java.awt.*;
 import java.text.ParseException;
 
 //Classe abstrata
