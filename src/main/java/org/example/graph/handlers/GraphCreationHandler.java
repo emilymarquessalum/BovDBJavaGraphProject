@@ -1,6 +1,6 @@
 package org.example.graph.handlers;
 
-import org.example.ValueMetric;
+import org.example.data.ValueMetric;
 
 import java.util.ArrayList;
 import java.util.function.Consumer;

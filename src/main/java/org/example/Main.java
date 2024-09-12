@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.data.BovDataset;
+import org.example.data.ValueMetric;
 import org.example.graph.GraphOptions;
 import org.example.graph.handlers.GraphCreationHandler;
 import org.example.graph.handlers.GraphCreationParameters;

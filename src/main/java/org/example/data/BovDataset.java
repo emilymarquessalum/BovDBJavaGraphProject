@@ -1,5 +1,4 @@
 package org.example.data;
-import org.example.ValueMetric;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import java.text.ParseException;

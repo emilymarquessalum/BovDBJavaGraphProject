@@ -1,7 +1,7 @@
 package org.example.graph.handlers;
 
 import org.example.dashboard.DatePeriodInputs;
-import org.example.ValueMetric;
+import org.example.data.ValueMetric;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,7 +1,7 @@
 package org.example.graph.handlers;
 
 import org.example.graph.GraphOptions;
-import org.example.ValueMetric;
+import org.example.data.ValueMetric;
 
 import java.util.ArrayList;
 

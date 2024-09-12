@@ -1,7 +1,7 @@
-package org.example;
+package org.example.data;
 
 public class ValueMetric {
-    String name;
+    public String name;
 
     public ValueMetric(String name) {
         this.name = name;

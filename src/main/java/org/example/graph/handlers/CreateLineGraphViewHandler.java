@@ -1,7 +1,6 @@
 package org.example.graph.handlers;
-import org.example.GraphCreationHandler;
 import org.example.graph.GraphOptions;
-import org.example.ValueMetric;
+import org.example.data.ValueMetric;
 
 import javax.swing.*;
 import java.awt.*;
